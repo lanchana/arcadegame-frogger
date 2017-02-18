@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    /*background-color: #6cccfe;*/
+    background-image: url(images/sky1.png);
+    background-size: cover;
+     /*display: inline-block;*/
+}
+
+canvas,
+button {
+    /*text-align: center;*/
+    margin: 0 auto;     /*Displayes canvas and button in the middle of the screen*/
+    display: block;
+}
+
+button {
+    color: rgb(24, 24, 104);
+    width: 8em;
+    height: 3em;
+    margin: 0.3em 1em;
+    /*font-size: 1em;*/
+    border-radius: 5px;
+    background: #f0f0f5;
+    font: bold 15px monospace;
+    display: inline-block;
+}
