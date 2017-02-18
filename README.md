@@ -6,7 +6,7 @@
 #### Project Requirments
 Provided with visual assets and a game loop engine, using these tools you must add a number of entities to the game including the player characters and enemies to recreate the classic arcade game Frogger.
 #### How To Run The Game
-Download the repository in your desktop, unzip it and open the "index.html" file in your browser to play the game Or you can play online version of My game [here](https://lanchana.github.io/arcade-game-fogger/)
+Download the repository in your desktop, unzip it and open the "index.html" file in your browser to play the game Or you can play online version of My game [here](https://lanchana.github.io/arcadegame-frogger/)
 
 ---
 #### How To Play The Game
