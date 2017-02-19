@@ -268,7 +268,7 @@ var Engine = (function(global) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                 }
             }
-        }
+        };
 
     /* This function renders different game states according to case
      */
@@ -296,7 +296,8 @@ var Engine = (function(global) {
                 ctx.fillText("Collect KEY and Reach Water to move next level", canvas.width/2, canvas.height/2.5);
                 ctx.fillText("Difficulty Increases when you move higher levels", canvas.width/2, canvas.height/2.24);
                 ctx.fillText("Collect Hearts for extra lives and Gems to score", canvas.width/2, canvas.height/2.05);
-                ctx.fillText("Avoid the Bugs to stay ALIVE", canvas.width/2, canvas.height/1.9);
+                ctx.fillText("Avoid the Bugs to stay ALIVE!! Bcoz...", canvas.width/2, canvas.height/1.9);
+                ctx.fillText("The goal here is to stay ALIVE as long as possible", canvas.width/2, canvas.height/1.75);
 
                 ctx.font = "35px monospace";
                 ctx.fillText("Good Luck!", canvas.width/2, canvas.height/1.6);
@@ -331,12 +332,12 @@ var Engine = (function(global) {
                 ctx.font = "50px monospace";
                 ctx.fillText("Game Over!", canvas.width/2, canvas.height/2.5);
                 ctx.font = "40px monospace";
-                ctx.fillText("Your Score: " + totalScore, canvas.width/2, canvas.height/2);
+                ctx.fillText("Your Score: " + globalvar.totalScore, canvas.width/2, canvas.height/2);
                 ctx.font = "30px monospace";
                 ctx.fillText("Press Enter To Restart...", canvas.width/2, canvas.height/1.01);
                 break;
          }
-    };
+    }
 
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
@@ -358,27 +359,17 @@ var Engine = (function(global) {
 
         heart.render();
         key.render();
-    };
+    }
 
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        /* Resets the game when the player lives is equal to zero
-         */
-        if(player.lives === 0) {
+        if(player.lives === 0){
             currentState = 'endGame';
-            totalScore = player.score;
-            player.level = 0;
-            player.lives = 3;
-            player.score = 0;
-
-            allEnemies.forEach(function(enemy) {
-                enemy.x = 710;
-            });
         }
-    };
+    }
 
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -409,4 +400,3 @@ var Engine = (function(global) {
     global.ctx = ctx;
     global.reset = reset;
 })(this);
-

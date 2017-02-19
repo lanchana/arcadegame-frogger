@@ -1,15 +1,14 @@
 body {
     text-align: center;
     /*background-color: #6cccfe;*/
-    background-image: url(images/sky1.png);
+    background: url(images/sky1.png) no-repeat center center fixed;
     background-size: cover;
-     /*display: inline-block;*/
 }
 
 canvas,
 button {
     /*text-align: center;*/
-    margin: 0 auto;     /*Displayes canvas and button in the middle of the screen*/
+    margin: 0 auto;
     display: block;
 }
 
