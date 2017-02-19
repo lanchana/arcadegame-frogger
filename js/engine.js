@@ -31,8 +31,6 @@ var Engine = (function(global) {
     doc.body.appendChild(canvas);
     var currentState = 'start';
 
-    var totalScore;
-
 //TODO: Add more player Selection
 
 /*  var removeHero = true;

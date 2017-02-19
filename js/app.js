@@ -11,7 +11,7 @@ globalvar.speedIncrease = 50;
 globalvar.gotKey = false;
 globalvar.startsound = true;
 globalvar.val = 0;
-globalvar.totalScore;
+globalvar.totalScore = 0;
 
 /**************** SUPER CLASS ***************************/
 
