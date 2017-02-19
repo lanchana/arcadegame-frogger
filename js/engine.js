@@ -330,7 +330,7 @@ var Engine = (function(global) {
                 ctx.font = "50px monospace";
                 ctx.fillText("Game Over!", canvas.width/2, canvas.height/2.5);
                 ctx.font = "40px monospace";
-                ctx.fillText("Your Score: " + globalvar.totalScore, canvas.width/2, canvas.height/2);
+                ctx.fillText("Your Score: " + CONSTANT_VAL.TOTAL_SCORE, canvas.width/2, canvas.height/2);
                 ctx.font = "30px monospace";
                 ctx.fillText("Press Enter To Restart...", canvas.width/2, canvas.height/1.01);
                 break;

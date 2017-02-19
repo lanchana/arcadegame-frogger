@@ -6,12 +6,12 @@
  */
 
 'use strict';
-var globalvar = {};
-globalvar.speedIncrease = 50;
-globalvar.gotKey = false;
-globalvar.startsound = true;
-globalvar.val = 0;
-globalvar.totalScore = 0;
+var CONSTANT_VAL = {};
+CONSTANT_VAL.SPEED_INC = 50;
+CONSTANT_VAL.GOT_KEY = false;
+CONSTANT_VAL.START_SOUND = true;
+CONSTANT_VAL.VAL = 0;
+CONSTANT_VAL.TOTAL_SCORE = 0;
 
 /**************** SUPER CLASS ***************************/
 
@@ -70,15 +70,15 @@ var Enemy = function(x, y, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
 
-    globalvar.val++;
-    if(globalvar.val % 2 === 0) {
+    CONSTANT_VAL.VAL++;
+    if(CONSTANT_VAL.VAL % 2 === 0) {
         this.sprite = 'images/enemy-bug.png';
     } else {
     this.sprite = 'images/blue-enemy-bug.png';
     }
     this.x = x;
     this.y = y;
-    this.speed = speed + globalvar.speedIncrease;
+    this.speed = speed + CONSTANT_VAL.SPEED_INC;
 };
 
 // Enemy.prototype = Object.create(Draw.prototype);
@@ -106,7 +106,7 @@ Enemy.prototype.render = function() {
     if(this.x >= 707) {
        this.x = -100;
             // this.speed = Math.random() * 250 + speedIncrease;
-            this.speed = Math.random() * 250 + globalvar.speedIncrease;
+            this.speed = Math.random() * 250 + CONSTANT_VAL.SPEED_INC;
     }
 };
 
@@ -126,7 +126,7 @@ Enemy.prototype.checkCollision = function() {
             if(player.lives !== 0) {
                 sound[2].play();
             } else {
-                console.log("executes");
+                // console.log("executes");
                 this.reset();
             }
 
@@ -164,9 +164,9 @@ var Player = function(x, y) {
 
 Player.prototype.render = function() {
     //  Playes the sound only one time at the start of the game
-    if(globalvar.startsound === true) {
+    if(CONSTANT_VAL.START_SOUND === true) {
         sound[0].play();
-        globalvar.startsound = false;
+        CONSTANT_VAL.START_SOUND = false;
     }
 
     ctx.restore();
@@ -223,32 +223,32 @@ Player.prototype.position = function() {
 //  increases enemey speed, resets key value and player position
 Player.prototype.waterCollision = function() {
     // console.log(gotKey);
-    if(globalvar.gotKey === true) {
+    if(CONSTANT_VAL.GOT_KEY === true) {
         sound[4].play();
-        globalvar.speedIncrease += 30;
-        console.log(globalvar.speedIncrease);
-        globalvar.gotKey = false;
+        CONSTANT_VAL.SPEED_INC += 30;
+        console.log(CONSTANT_VAL.SPEED_INC);
+        CONSTANT_VAL.GOT_KEY = false;
         this.level++;
         this.score += 100;
         this.position();
         key.position();
         allEnemies.forEach(function(enemy) {
             enemy.x = -200;
-            enemy.speed += globalvar.speedIncrease;
+            enemy.speed += CONSTANT_VAL.SPEED_INC;
         });
     }
 };
 
 Player.prototype.reset = function() {
-    globalvar.speedIncrease = 50;
+    CONSTANT_VAL.SPEED_INC = 50;
     sound[5].play();
-    globalvar.startsound = true;
+    CONSTANT_VAL.START_SOUND = true;
     // currentState = 'endGame';
-    globalvar.totalScore = player.score;
+    CONSTANT_VAL.TOTAL_SCORE = player.score;
     reset();
-    player.level = 0;
-    player.lives = 3;
-    player.score = 0;
+    this.level = 0;
+    this.lives = 3;
+    this.score = 0;
 };
 
 
@@ -320,7 +320,7 @@ Key.prototype.collisionDetected = function() {
     this.x = 900;
     this.y = 900;
     player.score += this.value;
-    globalvar.gotKey = true;
+    CONSTANT_VAL.GOT_KEY = true;
     sound[3].play();
 };
 
